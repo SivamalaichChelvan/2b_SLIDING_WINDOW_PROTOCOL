@@ -43,5 +43,6 @@ To implement a Sliding Window Protocol.
 ```
 ## OUTPUT:
 <img width="1225" height="371" alt="image" src="https://github.com/user-attachments/assets/6165152e-b81b-4a3f-bc03-8233ef48b4e6" />
+
 ## RESULT:
 Thus, python program to perform stop and wait protocol was successfully executed.
