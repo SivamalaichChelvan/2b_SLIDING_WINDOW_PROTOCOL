@@ -41,6 +41,36 @@ To implement a Sliding Window Protocol.
 6. Close the connection.
 7. End
 ```
+# PROGRAM:
+```
+client.py
+import socket
+s = socket.socket()
+s.bind(('localhost',8002))
+s.listen(5)
+c, addr = s.accept()
+ListSize = int(input("Enter the number of frames to send : "))
+List = list(range(ListSize))
+WindowSize = int(input("Enter Window Size : "))
+st, i = 0, 0
+while True:
+    while(i < ListSize):
+        st += WindowSize
+        c.send(str(List[i:st]).encode())
+        Acknowledgment = c.recv(1024).decode()
+        if Acknowledgment:
+            print(Acknowledgment)
+            i+=st
+```
+```
+server.py
+import socket
+s = socket.socket()
+s.connect(('localhost', 8002))
+while True:
+    print(s.recv(1024).decode())
+    s.send("Acknowledgement received from the server".encode())
+```
 ## OUTPUT:
 <img width="1225" height="371" alt="image" src="https://github.com/user-attachments/assets/6165152e-b81b-4a3f-bc03-8233ef48b4e6" />
 
